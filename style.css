@@ -1,0 +1,38 @@
+ /* Style the video: 100% width and height to cover the entire window */
+ #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  
+  /* Add some content at the bottom of the video/page */
+  .content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .rsp {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+  }
+
+  .tmx {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.malabarisk {
+    position: absolute;
+    left: 50%;
+    top: 33%;
+    transform: translate(-50%, -33%);
+    width: 33%;
+}
