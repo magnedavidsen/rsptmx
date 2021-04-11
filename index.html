@@ -21,19 +21,54 @@
 
   <meta name="theme-color" content="#fafafa">
   <script async defer data-domain="rsptmx.no" src="https://plausible.io/js/plausible.js"></script>
+
+  <script>
+    function play() {
+      var audio = document.getElementById("myAudio");
+      audio.play();
+
+      var container = document.getElementById("container");
+      container.className = "container";
+    }
+  </script>
 </head>
 
 <body>  
-  <video autoplay muted loop id="myVideo">
-    <source src="malabarisk.mp4" type="video/mp4">
-  </video>
+  
 
-  <div class="content">
+  <audio loop id="myAudio">
+    <source src="langtliv.mp3" type="audio/mpeg" >
+  </audio>
+  
+  
+
+  <img class="malabarisk" src="m.png" onclick="play()" />
+
+  
+  
+
+  <div class="hiddenContainer" id="container">
+    <div class="gradient"></div>
+    <video autoplay muted loop id="myVideo">
+      <source src="malabarisk.mp4" type="video/mp4">
+    </video>
+
+    <form action="https://sistesteg.us1.list-manage.com/subscribe/post" method="POST">
+    <input type="hidden" name="u" value="d9c5872166acd9affe3c95bf6">
+    <input type="hidden" name="id" value="4b8173e4bb">
+
+    <div class="pitch">
+      <input class="email" type="email" autocapitalize="none" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="" placeholder="hei@post.no">
+    </div>
+    
+    </form>
+
     <img class="rsp" src="rsp.png" />
     <img class="tmx" src="tmx.png" />
-    
   </div>
-  <img class="malabarisk" src="m.png" />
+
+  
+  
 
   
 </body>
