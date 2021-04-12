@@ -12,10 +12,6 @@
   <meta property="og:description"        content="Malabarisk" />
   <meta property="og:image"              content="https://rsptmx.no/meta.jpg" />
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
 
@@ -23,37 +19,10 @@
   <script async defer data-domain="rsptmx.no" src="https://plausible.io/js/plausible.js"></script>
 
   <script>
-
-    var actx = new (AudioContext || webkitAudioContext)(),
-        src = "langtliv.mp3",
-        audioData, srcNode;  // global so we can access them from handlers
-
-    var buff;
-
-    // Load some audio (CORS need to be allowed or we won't be able to decode the data)
-    fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode);
-
-    // Decode the audio file, then start the show
-    function decode(buffer) {
-      actx.decodeAudioData(buffer, saveBuffer);
-    }
-
-    function saveBuffer(abuffer){
-        buff = abuffer;
-    }
-
-    // Sets up a new source node as needed as stopping will render current invalid
-    function playLoop(abuffer) {
-      if (!audioData) audioData = abuffer;  // create a reference for control buttons
-      srcNode = actx.createBufferSource();  // create audio source
-      srcNode.buffer = abuffer;             // use decoded buffer
-      srcNode.connect(actx.destination);    // create output
-      srcNode.loop = true;                  // takes care of perfect looping
-      srcNode.start();                      // play...
-    }
-
+    
     function play() {
-      playLoop(buff);
+      var audio = document.getElementById("myAudio");
+      audio.play();
 
       var container = document.getElementById("container");
       container.className = "container";
@@ -63,12 +32,17 @@
 
 <body>  
   
+
+  <audio loop id="myAudio">
+    <source src="langtliv.mp3" type="audio/mpeg" >
+  </audio>
+  
   <img class="malabarisk" src="m.png" onclick="play()" />
 
   <div class="hiddenContainer" id="container">
     <div class="gradient"></div>
     <video autoplay muted loop id="myVideo">
-      <source src="malabarisk.mp4" type="video/mp4">
+      <source src="malabarisk_low.mp4" type="video/mp4">
     </video>
 
     <form action="https://sistesteg.us1.list-manage.com/subscribe/post" method="POST">
@@ -84,6 +58,11 @@
     <img class="rsp hide-on-small" src="rsp.png" />
     <img class="tmx hide-on-small" src="tmx.png" />
   </div>
+
+  
+  
+
+  
 </body>
 
 </html>
