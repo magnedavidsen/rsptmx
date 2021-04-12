@@ -65,6 +65,14 @@ body {
   right: 0;
 }
 
+.rsptmx {
+  position: absolute;
+  left: 50%;
+  top: 95%;
+  width: 100px;
+  transform: translate(-50%, -95%);
+}
+
 .malabarisk {
   position: absolute;
   left: 50%;
