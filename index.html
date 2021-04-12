@@ -28,12 +28,18 @@
         src = "langtliv.mp3",
         audioData, srcNode;  // global so we can access them from handlers
 
+    var buff;
+
     // Load some audio (CORS need to be allowed or we won't be able to decode the data)
     fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode);
 
     // Decode the audio file, then start the show
     function decode(buffer) {
-      actx.decodeAudioData(buffer, playLoop);
+      actx.decodeAudioData(buffer, saveBuffer);
+    }
+
+    function saveBuffer(abuffer){
+        buff = abuffer;
     }
 
     // Sets up a new source node as needed as stopping will render current invalid
@@ -47,7 +53,7 @@
     }
 
     function play() {
-      playLoop(audioData)
+      playLoop(buff);
 
       var container = document.getElementById("container");
       container.className = "container";
