@@ -89,7 +89,7 @@ body {
   left: 50%;
   top: 55%;
   transform: translate(-50%, -55%);
-  width: 100px;
+  width: 200px;
   z-index: 2;
 }
 
