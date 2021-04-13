@@ -84,6 +84,20 @@ body {
   z-index: 1;
 }
 
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -55%);
+  width: 100px;
+  z-index: 2;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
 .pitch {
   position: fixed;
   color: #fff;

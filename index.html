@@ -37,7 +37,14 @@
 
     // Decode the audio file, then start the show
     function decode(buffer) {
+
       actx.decodeAudioData(buffer, saveBuffer);
+
+      var loadingLogo = document.getElementById("loadingLogo");
+      loadingLogo.className = "hide";      
+      
+      var malabariskLogo = document.getElementById("malabariskLogo");
+      malabariskLogo.className = "malabarisk";    
     }
 
     function saveBuffer(abuffer){
@@ -64,7 +71,8 @@
 
 <body>  
   
-  <img class="malabarisk" src="m.png" onclick="play()" />
+  <img class="malabarisk hide" src="m.png" onclick="play()" id="malabariskLogo"/>
+  <img class="loading" src="rsptmx.png" id="loadingLogo" />
 
   <div class="hiddenContainer" id="container">
     <div class="gradient"></div>
