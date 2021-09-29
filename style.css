@@ -79,7 +79,7 @@ body {
   top: 55%;
   transform: translate(-50%, -55%);
   min-width: 200px;
-  width: 20vw;
+  width: 80%;
   cursor: pointer;
   z-index: 1;
 }
@@ -102,8 +102,8 @@ body {
   position: fixed;
   color: #fff;
   left: 50%;
-  top: 15%;
-  transform: translate(-50%, -15%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 
 }
@@ -141,6 +141,8 @@ body {
   font-family: 'HelveticaNeueLTPro-Bd';
   border: none;
   padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin: 0;
   text-decoration: none;
   background: rgba(0,0,0,0.3);
@@ -174,6 +176,8 @@ body {
   font-size: 20vw;
   color: #fff;
 }
+
+
 
 @media only screen and (max-width: 600px) {
   .hide-on-small {
