@@ -24,11 +24,18 @@ body {
  
  /* Style the video: 100% width and height to cover the entire window */
  #myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  display: block;
+  height: 100%;
+  width: auto;
+  margin: 0 auto;
     z-index: -1;
   }
 
@@ -69,7 +76,7 @@ body {
   position: absolute;
   left: 50%;
   top: 95%;
-  width: 100px;
+  width: 300px;
   transform: translate(-50%, -95%);
 }
 
@@ -78,8 +85,8 @@ body {
   left: 50%;
   top: 55%;
   transform: translate(-50%, -55%);
-  min-width: 200px;
-  width: 80%;
+  min-width: 150px;
+  width: 50%;
   cursor: pointer;
   z-index: 1;
 }

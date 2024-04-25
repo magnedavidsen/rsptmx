@@ -9,7 +9,7 @@
 
   <meta property="og:url"                content="https://rsptmx.no" />
   <meta property="og:title"              content="RSP & Thomax" />
-  <meta property="og:description"        content="Spesialleveranse" />
+  <meta property="og:description"        content="Fasefeil" />
   <meta property="og:image"              content="https://rsptmx.no/meta2.jpg" />
 
   <link rel="stylesheet" href="reset.css">
@@ -21,9 +21,52 @@
   <title>RSP&TMX</title>
 
   <script>
+    const contextCtor = (window.AudioContext)
+            || (window.webkitAudioContext)
+            || false;
+
+        if (!contextCtor) {
+            throw new Error("Browser does not support Web Audio API (AudioContext is not available).");
+        }
+      
+    var actx = new contextCtor(),
+        src = "wallabees.wav",
+        audioData, srcNode, buff;  // global so we can access them from handlers
+
+    // Load some audio (CORS need to be allowed or we won't be able to decode the data)
+    fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode);
+
+    // Decode the audio file, then start the show
+    function decode(buffer) {
+
+      actx.decodeAudioData(buffer, saveBuffer);
+
+      var loadingLogo = document.getElementById("loadingLogo");
+      loadingLogo.className = "hide";      
+      
+      var malabariskLogo = document.getElementById("malabariskLogo");
+      malabariskLogo.className = "malabarisk";    
+    }
+
+    function saveBuffer(abuffer){
+        buff = abuffer;
+    }
+
+    // Sets up a new source node as needed as stopping will render current invalid
+    function playLoop(abuffer) {
+      if (!audioData) audioData = abuffer;  // create a reference for control buttons
+      srcNode = actx.createBufferSource();  // create audio source
+      srcNode.buffer = abuffer;             // use decoded buffer
+      srcNode.connect(actx.destination);    // create output
+      srcNode.loop = true;                  // takes care of perfect looping
+      srcNode.start();                      // play...
+    }
+  
 
     function play(){
+      playLoop(buff);
       myVideo.play();
+      
       var container = document.getElementById("container");
       container.className = "container";
 
@@ -40,13 +83,14 @@
 
 <body>  
   
-  <img id="speslevlogo" class="malabarisk" src="speslev.png" onclick="play()" id="malabariskLogo"/>
+  <img id="speslevlogo" class="malabarisk" src="wallabees.png" onclick="play()" id="malabariskLogo"/>
   
 
   <div class="hiddenContainer" id="container">
     <div class="gradient"></div>
-    <video playsinline id="myVideo">
-      <source src="live_small.mp4" type="video/mp4">
+
+    <video playsinline id="myVideo" muted loop>
+      <source src="wallabees.webm" type="video/webm">
     </video>
 
     <form action="https://sistesteg.us1.list-manage.com/subscribe/post" method="POST">
@@ -54,12 +98,12 @@
     <input type="hidden" name="id" value="4b8173e4bb">
 
     <div class="pitch">
-      <input class="email" type="email" autocapitalize="none" autocorrect="off" required name="MERGE0" id="MERGE0" size="25" placeholder="hei@post.no" /><input class="submitButton" type="submit" value="GJENÅPNE MEG!" />
+      <input class="email" type="email" autocapitalize="none" autocorrect="off" required name="MERGE0" id="MERGE0" size="25" placeholder="hei@post.no" /><input class="submitButton" type="submit" value="FØLG GODT MED" />
     </div>
     
     </form>
 
-    <img class="rsptmx" src="rsptmx.png" />
+    <img class="rsptmx" src="fasefeil.png" />
   </div>
 
   
