@@ -17,6 +17,7 @@
 
   <meta name="theme-color" content="#fafafa">
   <script defer data-domain="rsptmx.no" src="https://plausible.io/js/script.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
   <title>RSP&TMX</title>
 
@@ -64,6 +65,7 @@
   
 
     function play(){
+      plausible('Play');
       playLoop(buff);
       myVideo.play();
       
@@ -83,7 +85,7 @@
 
 <body>  
   
-  <img id="speslevlogo" class="malabarisk plausible-event-name=Play" src="wallabees.png" onclick="play()" id="malabariskLogo"/>
+  <img id="speslevlogo" class="malabarisk" src="wallabees.png" onclick="play()" id="malabariskLogo"/>
   
 
   <div class="hiddenContainer" id="container">
@@ -98,7 +100,7 @@
     <input type="hidden" name="id" value="4b8173e4bb">
 
     <div class="pitch">
-      <input class="email" type="email" autocapitalize="none" autocorrect="off" required name="MERGE0" id="MERGE0" size="25" placeholder="hei@post.no" /><input class="submitButton plausible-event-name=Sign+up" type="submit" value="FØLG GODT MED" />
+      <input class="email" type="email" autocapitalize="none" autocorrect="off" required name="MERGE0" id="MERGE0" size="25" placeholder="hei@post.no" /><input class="plausible-event-name=Sign+up submitButton" type="submit" value="FØLG GODT MED" />
     </div>
     
     </form>
