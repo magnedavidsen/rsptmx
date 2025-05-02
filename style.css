@@ -3,6 +3,11 @@
   src: url('font.woff2') format('woff2'), url('font.woff') format('woff');
 }
 
+html {
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
+}
+
 html, body {margin: 0; height: 100%; overflow: hidden}
 
 body {
@@ -22,19 +27,16 @@ body {
  
  /* Style the video: 100% width and height to cover the entire window */
  #myVideo {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
-  margin-right: -50%;
-  -ms-transform: translate(-50%,-50%);
-  -moz-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  display: block;
-  height: 100%;
+  transform: translate(-50%, -50%);
+  min-height: 100%;
+  min-width: 100%;
   width: auto;
-  margin: 0 auto;
-    z-index: -1;
+  height: auto;
+  object-fit: cover;
+  z-index: -1;
   }
 
   #myAudio {
@@ -110,7 +112,6 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-
 }
 
 .email{
@@ -121,7 +122,7 @@ body {
   display: inline-block;
   min-height: 50px;
   padding: 12px 8px 8px 10px;
-  width: 40vw;
+  width: 90vw;
   margin-top: 5px;
   background: rgba(0,0,0,0.3);
   border-top: none;
@@ -134,11 +135,12 @@ body {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
-  font-size: 36px;
+  font-size: 24px;
   color: #fff;
   outline: none;
   text-align: center;
-  min-width: 360px;
+  min-width: 280px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .submitButton {
@@ -160,7 +162,6 @@ body {
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
-  
 }
 
 .submitButton:hover,
@@ -182,8 +183,6 @@ body {
   color: #fff;
 }
 
-
-
 @media only screen and (max-width: 600px) {
   .hide-on-small {
     visibility: hidden;
@@ -196,5 +195,16 @@ body {
   .submitButton{
     font-size: 24px;
   }
-
+  
+  .malabarisk {
+    width: 80%;
+  }
+  
+  .rsptmx {
+    width: 200px;
+  }
+  
+  .rsp, .tmx {
+    width: 45vw;
+  }
 }
